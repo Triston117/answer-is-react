@@ -15,7 +15,7 @@ In this sprint, you'll be completing an application that may or may not ressembl
 
 - _Initial setup:_ `npm install`
 
-- _Run the app:_ In a new terminal tab, start the application with `npm start`
+- _Run the app:_ In a new terminal tab, start the application with `npm run dev`
 
 - Make sure you `add` and `commit` frequently!
 
