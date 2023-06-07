@@ -1,14 +1,26 @@
 import React from "react";
+import Clue from "./Clue.jsx";
+import Categories from "./Categories.jsx";
 
 const Gameboard = (props) => {
+  const { currentQuestion, categories } = props;
+
   return (
     <div
       data-testid="gameboard"
-      id={props.currentQuestion.question ? "question" : "gameboard"}
+      id={currentQuestion.question ? "question" : "gameboard"}
     >
-      {/* was a question clicked?  */}
-      {/* Yes? Show clue */}
-      {/* No? Show Categories */}
+      {currentQuestion.question ? (
+        // A question was clicked, show clue
+        <Clue
+          value={currentQuestion.value}
+          question={currentQuestion.question}
+          answered={currentQuestion.answered}
+        />
+      ) : (
+        // No question clicked, show categories
+        <Categories categories={categories} />
+      )}
     </div>
   );
 };

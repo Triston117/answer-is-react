@@ -4,13 +4,21 @@ const Response = (props) => {
   const [userResponse, setUserResponse] = useState("");
 
   const recordResponse = (event) => {
-    // Implement record response
+    setUserResponse(event.target.value);
   };
 
   const submitResponse = (event) => {
-    // this function should fire when the user fills the response and hits 'enter'
-    // Is the user response correct?
-    // yes/no? What should happen?
+    if (event.key === "Enter") {
+      // Check if the user response is correct
+      const isCorrect =
+        /* Perform your logic to check correctness */
+
+        // Call the onSubmit callback with the user response and correctness
+        props.onSubmit(userResponse, isCorrect);
+
+      // Clear the input field
+      setUserResponse("");
+    }
   };
 
   return (
@@ -18,8 +26,9 @@ const Response = (props) => {
       <input
         type="text"
         placeholder="Answers go here!"
-        // handle data change
-        // handle when 'enter' is hit
+        value={userResponse}
+        onChange={recordResponse}
+        onKeyDown={submitResponse}
       />
     </div>
   );
