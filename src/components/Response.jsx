@@ -1,26 +1,30 @@
 import React, { useState } from "react";
 
-const Response = (props) => {
+const Response = ({ onSubmit }) => {
   const [userResponse, setUserResponse] = useState("");
 
   const recordResponse = (event) => {
-    // Implement record response
+    setUserResponse(event.target.value);
   };
 
   const submitResponse = (event) => {
-    // this function should fire when the user fills the response and hits 'enter'
-    // Is the user response correct?
-    // yes/no? What should happen?
+    event.preventDefault();
+    onSubmit(userResponse);
+    setUserResponse();
   };
 
   return (
     <div id="response" data-testid="response">
-      <input
-        type="text"
-        placeholder="Answers go here!"
-        // handle data change
-        // handle when 'enter' is hit
-      />
+      <form onSubmit={submitResponse}>
+        <input
+          type="text"
+          placeholder="Answers go here!"
+          value={userResponse}
+          onChange={recordResponse}
+          // handle data change
+          // handle when 'enter' is hit
+        />
+      </form>
     </div>
   );
 };
