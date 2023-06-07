@@ -8,7 +8,7 @@ const Category = (props) => {
     <div className="category" data-testid="category">
       <div className="categoryTitle">{title}</div>
       {clues.map((clue) => {
-        const hasBeenAnswered = props.answeredQuestions.inclues(clue.id);
+        const hasBeenAnswered = props.answeredQuestions.includes(clue.id);
         return (
           <Clue
             key={clue.id}

@@ -1,18 +1,23 @@
 import React from "react";
 import Categories from "./Categories.jsx";
 
-const Gameboard = (props) => {
+const Gameboard = ({
+  currentQuestion,
+  categories,
+  onClueSelected,
+  answeredQuestions,
+}) => {
   return (
     <div
       data-testid="gameboard"
-      id={props.currentQuestion.question ? "question" : "gameboard"}
+      id={currentQuestion.question ? "question" : "gameboard"}
     >
-      {props.currentQuestion.question ? (
-        props.currentQuestion.question
+      {currentQuestion.question ? (
+        currentQuestion.question
       ) : (
         <Categories
-          categories={props.categories}
-          onClueSelected={props.onClueSelected}
+          categories={categories}
+          onClueSelected={onClueSelected}
           answeredQuestions={answeredQuestions}
         />
       )}
