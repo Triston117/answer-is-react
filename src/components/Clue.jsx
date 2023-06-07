@@ -8,7 +8,7 @@ const Clue = (props) => {
 
   return (
     <div onClick={handleClick} className="clueValue" data-testid="value">
-      {props.hasBeenAnswered ? "" : `$${value}`}${value}
+      {props.hasBeenAnswered ? "" : `${value}`}
     </div>
   );
 };
