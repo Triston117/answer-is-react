@@ -3,7 +3,7 @@ import data from "../testdata.js";
 import Gameboard from "./Gameboard.jsx";
 import Scoreboard from "./Scoreboard.jsx";
 import Response from "./Response.jsx";
-
+let test = test;
 const App = () => {
   const [categories, setCategories] = useState(data.categories);
   const [currentQuestion, setCurrentQuestion] = useState({});
@@ -24,7 +24,7 @@ const App = () => {
   const handleClueSelected = (clue) => {
     setCurrentQuestion(clue);
   };
-
+  //for commit
   return (
     <div id={"app"}>
       <Gameboard
