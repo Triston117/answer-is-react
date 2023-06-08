@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Response = ({ onSubmit }) => {
+const Response = ({ onSubmit, isDisabled }) => {
   const [userResponse, setUserResponse] = useState("");
 
   const recordResponse = (event) => {
@@ -10,7 +10,7 @@ const Response = ({ onSubmit }) => {
   const submitResponse = (event) => {
     event.preventDefault();
     onSubmit(userResponse);
-    setUserResponse();
+    setUserResponse("");
   };
 
   return (
@@ -21,8 +21,6 @@ const Response = ({ onSubmit }) => {
           placeholder="Answers go here!"
           value={userResponse}
           onChange={recordResponse}
-          // handle data change
-          // handle when 'enter' is hit
         />
       </form>
     </div>
